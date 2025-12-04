@@ -155,16 +155,7 @@ public class BookingService {
         return convertToBookingResponse(cancelledBooking);
     }
 
-    /**
-     * Wrapper around Feign client call with circuit-breaker protection.
-     * Fallback method will be invoked if the call fails or circuit is open.
-     */
-//    @CircuitBreaker(name = FLIGHT_CB, fallbackMethod = "flightDetailsFallback")
-//    public FlightDTO fetchFlightDetailsWithCircuitBreaker(Long flightId) {
-//        return flightServiceClient.getFlightDetails(flightId);
-//    }
-   
-   
+  
 
     @CircuitBreaker(name = FLIGHT_CB, fallbackMethod = "flightDetailsFallback")
     public FlightDTO fetchFlightDetailsWithCircuitBreaker(Long flightId) {
